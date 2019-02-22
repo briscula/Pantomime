@@ -122,8 +122,8 @@ open class ManifestBuilder {
                 } else if line.hasPrefix("#EXTINF") {
                     currentSegment = MediaSegment()
                     do {
-                        let segmentDurationString = try line.replace("(.*):(\\d.*),(.*)", replacement: "$2")
-                        let segmentTitle = try line.replace("(.*):(\\d.*),(.*)", replacement: "$3")
+                        let segmentDurationString = try line.replace("(.*):(-?\\d.*),(.*)", replacement: "$2")
+                        let segmentTitle = try line.replace("(.*):(-?\\d.*),(.*)", replacement: "$3")
                         currentSegment?.rawLine = line
                         currentSegment!.duration = Float(segmentDurationString)
                         currentSegment!.title = segmentTitle
